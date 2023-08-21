@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block title %}
+Login Page
+{% endblock %}
+
+{% block content %}
+<body class="text-center">
+<!----------------Trade mark logo--------------------------- -->
+<br>
+    <div class="container" style="border:3px solid cyan; border-radius:5px;"><span style="font-size:8rem; color:steelblue;"><b>CLOUDLORD</b>®</span></div>
+    <br>
+    <h1 class="h3 mb-3 font-weight-normal">Please login</h1>
+
+<!-----------------------login form------------------------>
+    <br>
+    <div class="container">
+        <form method="POST" class="form-signin" style="color:white">
+            {{ form.hidden_tag() }}
+
+            {{ form.username.label() }}
+            {{ form.username(class="form-control", placeholder="User Name") }}
+            <br>
+            {{ form.password.label() }}
+            {{ form.password(class="form-control", placeholder="Password") }}
+            <br>
+            {{ form.submit(class="btn btn-lg btn-block btn-primary") }}
+            <!--------User can register if they do not have an account--------->
+            <br>
+            <div class="checkbox mb-3">
+                <h6>Do not have an account?</h6>
+                <a class="btn btn-sm btn-secondary" href="{{ url_for('register_page') }}">Register</a>
+            </div>
+        </form>
+    </div>
+
+</body>
+{% endblock %}
