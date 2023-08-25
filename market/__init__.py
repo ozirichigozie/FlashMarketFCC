@@ -13,7 +13,7 @@ app.config['SQLALCHEMY_BINDS'] = {
     "market": "sqlite:///market.db"
 }
 app.config['SECRET_KEY'] = app_config_secret_key
-# '4a71779623ea276fb09f440a'
+
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
 login_manager = LoginManager(app)
