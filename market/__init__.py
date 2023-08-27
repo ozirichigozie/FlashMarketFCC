@@ -26,23 +26,16 @@ db_exec = connect_db.execute
 db_execmany = connect_db.executemany
 cursor = connect_db.cursor()
 
-# connect_db.execute("DROP TABLE IF EXISTS")
 # db_exec("DROP TABLE User")
 # db_exec('''
-#     CREATE TABLE User
-#         (id INTEGER PRIMARY KEY,
+#     CREATE TABLE User(
+#         id INTEGER PRIMARY KEY,
 #         username TEXT NOT NULL,
 #         email_address TEXT NOT NULL,
 #         passwd_hash TEXT NOT NULL,
-#         budget INT NOT NULL,
-#         items TEXT REFERENCES Item);
+#         budget INT NOT NULL
+#     );
 # ''')
-# user_vals = [
-#     (1,'Oz','oz@iri.com','oz542',1000,'iPhone X'),
-#     (2,'Ozi','coz@iri.com','ozI542',1500,'Keyboard'),
-#     (3,'ziri','ziri@oz.com','ziri142',2500,'Laptop'),
-# ]
-# db_execmany("REPLACE INTO User VALUES (?,?,?,?,?,?)", user_vals)
 
 # db_exec("DROP TABLE Item")
 # db_exec('''
@@ -62,46 +55,19 @@ item_vals = [
     (2, 'Laptop', 700, 7461542, 'descr', None),
     (3, 'Keyboard', 100, 6461540, 'described', None),
     (4, 'Mouse', 30, 6461541, 'described1', None),
+    (5, 'Headphone', 50, 7812341, 'Wireless BT-enabled', None),
 ]
 # db_execmany("REPLACE INTO Item VALUES (?,?,?,?,?,?)",item_vals)
 
 connect_db.commit()
 
-# cursor.execute("SELECT * FROM Item")
-# data = cursor.fetchall()
-# print(f"all_data from Item:\n {data}")
-
-# search_val = 'iPhone X'
-# cursor.execute("SELECT name FROM Item WHERE name = ?", (search_val,))
-# item1 = cursor.fetchall()[0][0]
-# print(f"Item1: {item1}")
-
-# cursor.execute("SELECT * FROM User")
-# data = cursor.fetchall()
-# print(f"all_data from User:\n {data}")
-
 connect_db.close()
 
 from market import routes
 
-# search_val = 'Oz'
+# search_val = 'user_name'
 # cursor.execute("SELECT id FROM User WHERE username = ?", (search_val,))
-# item1_owner_ID = item2_owner_ID = cursor.fetchall()[0][0]
-# print(f"Item_1n2 Owner ID: {item1_owner_ID}, {item2_owner_ID}")
+# item1_owner_ID = cursor.fetchall()[0][0]
+
 # cursor.execute("SELECT username FROM User")
 # owners = cursor.fetchall()
-
-# item1_owner = owners[0][0]
-# item2_owner = owners[1][0]
-# item3_owner = item4_owner = owners[2][0]
-
-# print(f"owners: {owners}")
-
-# search_val = 'Ozi'
-# cursor.execute("SELECT id FROM User WHERE username = ?", (search_val,))
-# item3_owner_ID = item4_owner_ID = cursor.fetchall()[0][0]
-
-# print(f"Item_3n4 Owner ID: {item3_owner_ID}, {item4_owner_ID}")
-
-# connect_db.commit()
-
